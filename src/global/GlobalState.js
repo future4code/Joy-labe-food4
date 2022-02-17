@@ -1,12 +1,22 @@
 import React, {useState} from "react";
-import GlobalContext from "./GlobalContext"
+import {GlobalContext} from "./GlobalContext"
 
-export const GlobalState = (props) =>{
-    const [] = useState([])
+const GlobalState = (props) =>{
+    const [car, setCar] = useState([])
+
+    const states = {
+        car
+    }
+
+    const setters = {
+        setCar
+    }
 
     return(
-        <GlobalContext.provider value={{}}>
+        <GlobalContext.Provider value={{states, setters}}>
             {props.children}
-        </GlobalContext.provider>
+        </GlobalContext.Provider>
     )
 }
+
+export default GlobalState
