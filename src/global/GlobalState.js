@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {GlobalContext} from "./GlobalContext"
+import GlobalContext from "./GlobalContext"
 
 const GlobalState = (props) =>{
     const [car, setCar] = useState([])
