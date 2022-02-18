@@ -1,14 +1,54 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AdressPage from "../page/AdressPage/AdressPage";
+import CarPage from "../page/CarPage/CarPage";
+import EditRecordPage from "../page/EditRecordPage/EditRecordPage";
+import FeedPage from "../page/FeedPage/FeedPage";
+import LoginPage from "../page/LoginPage/LoginPage";
+import ResultPage from "../page/ResultPage/ResultPage";
+import SearchPage from "../page/SearchPage/SearchPage";
+import SingUpPage from "../page/SingUpPage/SingUp";
+import ProfilePage from "../page/SingUpPage/SingUp";
+import ErrorPage from "../page/ErrorPage/ErrorPage";
 
-export const Router = () => {
+
+const Router = () => {
     return(
         <BrowserRouter>
             <Switch>
+                <Route exact path="/login">
+                    <LoginPage/>
+                </Route>
+                <Route exact path="/">
+                    <FeedPage/>
+                </Route>
+                <Route exact path="/restaurante/:id">
+                    <ResultPage/>
+                </Route>
+                <Route exact path="/cadrastro-endereco">
+                    <AdressPage/>
+                </Route>
+                <Route exact path="/carrinho">
+                    <CarPage/>
+                </Route>
+                <Route exact path="/perfil">
+                    <ProfilePage/>
+                </Route>
+                <Route exact path="/edicao-cadastro">
+                    <EditRecordPage/>
+                </Route>
+                <Route exact path="/busca">
+                    <SearchPage/>
+                </Route>
+                <Route exact path="/cadastro">
+                    <SingUpPage/>
+                </Route>
                 <Route>
-                    <></>
+                    <ErrorPage/>
                 </Route>
             </Switch>
         </BrowserRouter>
     )
 }
+
+export default Router
