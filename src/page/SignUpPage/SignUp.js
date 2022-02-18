@@ -26,6 +26,7 @@ const SignUp = () => {
         showPassword: false,
         showConfirmPassword: false,
     });
+    const token = localStorage.getItem("token")
 
     const body = {
         name: values.name,
@@ -56,34 +57,39 @@ const SignUp = () => {
         event.preventDefault();
     };
 
-    const signUp = async () => {
+    const signUp = () => {
         if (values.name !== undefined && values.email !== undefined && values.cpf !== undefined && values.password !== undefined && values.confirmPassword !== undefined) {
             if (values.password.length >= 6) {
                 if (values.password === values.confirmPassword) {
 
-                    const response = await axios.post(`${Base_url}/signup`, {
+                    const response = axios.post(`${Base_url}/signup`, body, {
                         headers: {
-                            "Content-Type": "application/json",
+                            "Content-Type": "application/json"
                         }
-                    }, {
-                        body: body
                     })
-                    try {
-                        console.log(response.data);
-                        setValues({
-                            name: undefined,
-                            email: undefined,
-                            cpf: undefined,
-                            password: undefined,
-                            confirmPassword: undefined,
-                            showPassword: false,
-                            showConfirmPassword: false,
-                        })
-                    }
-                    catch {
-                        alert("Ops! Ocorreu um erro.")
-                    }
+                        .then((res) => {
+                            console.log(res)
+                            localStorage.setItem("token", res.data.token)
+                            //O usuário deve ser direcionado à página de cadastro de endereço
+                            // if(hasAddress===false){
+                            //     history.push(página de endereço)
+                            // }
 
+
+                            setValues({
+                                name: undefined,
+                                email: undefined,
+                                cpf: undefined,
+                                password: undefined,
+                                confirmPassword: undefined,
+                                showPassword: false,
+                                showConfirmPassword: false,
+                            })
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                            alert("Ops! Ocorreu um erro.")
+                        })
                 }
                 else {
                     alert("Confirme a senha corretamente.")
@@ -97,7 +103,6 @@ const SignUp = () => {
         }
 
     }
-
 
     return (
         <SignUpStyle>
