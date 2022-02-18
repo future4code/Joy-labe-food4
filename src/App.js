@@ -1,11 +1,11 @@
 import React from "react";
 import { GlobalState } from "./global/GlobalState";
-import AdressPage from "./page/AdressPage/AdressPage";
+import SignUp from "./page/SignUpPage/SignUp";
 import { Router } from "./routes/Router";
 
 function App() {
   return (
-    <AdressPage />
+    <SignUp />
     // <GlobalState>
     //   <Router/>
     // </GlobalState>
