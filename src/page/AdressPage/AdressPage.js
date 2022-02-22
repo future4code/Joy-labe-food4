@@ -1,5 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
+
+import { Base_url } from '../../constants/Urls';
 
 
 import TextField from '@mui/material/TextField';
@@ -8,16 +12,43 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 import { SignUpStyle } from './styled';
 import { Header } from './styled';
+import axios from 'axios';
+import { goToFeed } from '../../routes/coordinator';
 
 const AdressPage = () => {
   const [values, setValues] = React.useState({
-    logradouro: '',
-    numero: '',
-    complemento: '',
-    bairro: '',
-    cidade: '',
-    estado: '',
+    street: '',
+    number: '',
+    neighbourhood: '',
+    city: '',
+    state: '',
+    complement: '',
   });
+
+  const history = useHistory()
+
+  const token = localStorage.getItem("token")
+
+
+  const addAddress = () => {
+    if (values.street.length !== 0 && values.number.length !== 0 && values.neighbourhood.length !== 0 && values.city.length !== 0 && values.state.length !== 0) {
+      axios.put(`${Base_url}/address`, values, {
+        headers: {
+          "auth": token,
+          "Content-Type": "application/json"
+        }
+      })
+        .then((res) => {
+          localStorage.setItem("token", res.data.token)
+          goToFeed(history)
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    } else {
+      alert("Preencha todos os campos com *")
+    }
+  }
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -32,7 +63,7 @@ const AdressPage = () => {
       <h4>Meu endereço</h4>
 
       <TextField
-        onChange={handleChange}
+        onChange={handleChange("street")}
         fullWidth
         className='input'
         required
@@ -45,7 +76,7 @@ const AdressPage = () => {
         }}
       />
       <TextField
-        onChange={handleChange}
+        onChange={handleChange("number")}
         fullWidth
         className='input'
         required
@@ -58,10 +89,9 @@ const AdressPage = () => {
         }}
       />
       <TextField
-        onChange={handleChange}
+        onChange={handleChange("complement")}
         fullWidth
         className='input'
-        required
         label="Complemento"
         placeholder='Apto. / Bloco'
         id="outlined-start-adornment"
@@ -72,7 +102,7 @@ const AdressPage = () => {
       />
 
       <TextField
-        onChange={handleChange}
+        onChange={handleChange("neighbourhood")}
         fullWidth
         className='input'
         required
@@ -86,7 +116,7 @@ const AdressPage = () => {
       />
 
       <TextField
-        onChange={handleChange}
+        onChange={handleChange("city")}
         fullWidth
         className='input'
         required
@@ -100,7 +130,7 @@ const AdressPage = () => {
       />
 
       <TextField
-        onChange={handleChange}
+        onChange={handleChange("state")}
         fullWidth
         className='input'
         required
@@ -112,7 +142,7 @@ const AdressPage = () => {
           startAdornment: <InputAdornment position="start" />,
         }}
       />
-      <button id="button--criar">Salvar</button>
+      <button id="button--criar" onClick={addAddress}>Salvar</button>
     </SignUpStyle>
   )
 
