@@ -15,14 +15,18 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { SignUpStyle } from './styled';
 import { Header } from './styled';
 
+import { goToAdress, goToLogin } from '../../routes/coordinator';
+import { useHistory } from 'react-router-dom';
 
 const SignUp = () => {
+    const history = useHistory()
+
     const [values, setValues] = useState({
-        name: undefined,
-        email: undefined,
-        cpf: undefined,
-        password: undefined,
-        confirmPassword: undefined,
+        name: "",
+        email: "",
+        cpf: "",
+        password: "",
+        confirmPassword: "",
         showPassword: false,
         showConfirmPassword: false,
     });
@@ -58,7 +62,7 @@ const SignUp = () => {
     };
 
     const signUp = () => {
-        if (values.name !== undefined && values.email !== undefined && values.cpf !== undefined && values.password !== undefined && values.confirmPassword !== undefined) {
+        if (values.name.length !== 0 && values.email.length !== 0 && values.cpf.length !== 0 && values.password.length !== 0 && values.confirmPassword.length !== 0) {
             if (values.password.length >= 6) {
                 if (values.password === values.confirmPassword) {
 
@@ -70,25 +74,23 @@ const SignUp = () => {
                         .then((res) => {
                             console.log(res)
                             localStorage.setItem("token", res.data.token)
-                            //O usuário deve ser direcionado à página de cadastro de endereço
-                            // if(hasAddress===false){
-                            //     history.push(página de endereço)
-                            // }
-
+                            alert("Usuário cadastrado com sucesso.")
+                            goToAdress(history)
 
                             setValues({
-                                name: undefined,
-                                email: undefined,
-                                cpf: undefined,
-                                password: undefined,
-                                confirmPassword: undefined,
+                                name: "",
+                                email: "",
+                                cpf: "",
+                                password: "",
+                                confirmPassword: "",
                                 showPassword: false,
                                 showConfirmPassword: false,
                             })
                         })
                         .catch((err) => {
                             console.log(err)
-                            alert("Ops! Ocorreu um erro.")
+                            alert("Esse usuário já possui cadastro.")
+                            goToLogin(history)
                         })
                 }
                 else {
