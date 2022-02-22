@@ -8,6 +8,8 @@ import axios from 'axios';
 
 function SearchPage () {
   const [restaurants, setRestaurants] = useState([])
+  const [restaurantsFiltered, setRestaurantsFiltered] = useState([])
+  const [text, setText] = useState('Busque por nome de restaurante')
 
   const url = 'https://us-central1-missao-newton.cloudfunctions.net/rappi4B/restaurants';
 
@@ -25,17 +27,25 @@ function SearchPage () {
     }
   }
 
-  const handleSearch = ({ name }) => {
+  const searchRestaurants = (e) => {
+    e.preventDefault();
+    const search = e.target.value;
+    const searchRestaurants = restaurants.filter(restaurant => {
+      return restaurant.name.toLowerCase().includes(search.toLowerCase())
+    })
 
-    const search = {}
+    if(search.length > 0 && searchRestaurants.length === 0) {
+      setText('Não encontramos :( ')
+    }
 
-    restaurants.map(item => (
-      search = item.find(elem => elem.name === name)
-    ))
-    
-    console.log(search)
-    return search
+    if(search.length === 0) {
+      setRestaurantsFiltered([])
+      setText('Busque por nome de restaurante')
+    } else {
+      setRestaurantsFiltered(searchRestaurants)
+    }
   }
+
 
   useEffect(() => {
     getAllRestaurants()
@@ -50,12 +60,12 @@ function SearchPage () {
       <Grid style={{ display: 'flex', flexDirection: 'column', maxWidth: '360px', margin: '0 auto'}}>
         <Box>
           <form variant="outlined">
-            <TextField 
+            <TextField
               autoFocus
               name="search"
               fullWidth
               margin="normal"
-              onChange={(e) => handleSearch(e.target.value)}
+              onChange={(e) => searchRestaurants(e)}
               placeholder="Restaurante"
               variant="outlined"
               InputProps={{
@@ -68,22 +78,23 @@ function SearchPage () {
             />
           </form>
         </Box>
-        
-        {restaurants.length === 0 && (
+
+        {restaurantsFiltered.length === 0 && (
           <Typography fontWeigth="600" style={{ alignSelf: 'center' }}>
-            Busque por nome de restaurante
+            {text}
           </Typography>
         )}
 
-        <Grid justifyContent="center" alignItems="center" style={{ display: 'flex', flexDirection: 'column' }}>
-          {restaurants.map((item, index) => (
-            <CardRestaurant key={index} logo={item.logoUrl} name={item.name} time={item.deliveryTime} shipping={item.shipping} />
-          ))}
-        </Grid>
+        {restaurantsFiltered.length > 0 && (
+          <Grid justifyContent="center" alignItems="center" style={{ display: 'flex', flexDirection: 'column' }}>
+            <CardRestaurant logo={restaurantsFiltered[0].logoUrl} name={restaurantsFiltered[0].name} time={restaurantsFiltered[0].deliveryTime}  shipping={restaurantsFiltered[0].shipping} />
+          </Grid>
+        )}
 
-      
+
+
       </Grid>
-    
+
     </>
   );
 }
