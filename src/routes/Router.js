@@ -7,44 +7,44 @@ import FeedPage from "../page/FeedPage/FeedPage";
 import LoginPage from "../page/LoginPage/LoginPage";
 import ResultPage from "../page/ResultPage/ResultPage";
 import SearchPage from "../page/SearchPage/SearchPage";
-import SingUpPage from "../page/SingUpPage/SingUp";
+import SignUpPage from "../page/SignUpPage/SignUp";
 import ProfilePage from "../page/SingUpPage/SingUp";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
 
 
 const Router = () => {
-    return(
+    return (
         <BrowserRouter>
             <Switch>
                 <Route exact path="/login">
-                    <LoginPage/>
+                    <LoginPage />
                 </Route>
                 <Route exact path="/">
-                    <FeedPage/>
+                    <FeedPage />
                 </Route>
                 <Route exact path="/restaurante/:id">
-                    <ResultPage/>
+                    <ResultPage />
                 </Route>
                 <Route exact path="/cadrastro-endereco">
-                    <AdressPage/>
+                    <AdressPage />
                 </Route>
                 <Route exact path="/carrinho">
-                    <CarPage/>
+                    <CarPage />
                 </Route>
                 <Route exact path="/perfil">
-                    <ProfilePage/>
+                    <ProfilePage />
                 </Route>
                 <Route exact path="/edicao-cadastro">
-                    <EditRecordPage/>
+                    <EditRecordPage />
                 </Route>
                 <Route exact path="/busca">
-                    <SearchPage/>
+                    <SearchPage />
                 </Route>
                 <Route exact path="/cadastro">
-                    <SingUpPage/>
+                    <SignUpPage />
                 </Route>
                 <Route>
-                    <ErrorPage/>
+                    <ErrorPage />
                 </Route>
             </Switch>
         </BrowserRouter>
