@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from 'react';
+
 import { InputAdornment, Box, TextField, Typography, Grid } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Header } from '../../components/Header';
 import { CardRestaurant } from '../../components/CardRestaurant';
-import axios from 'axios';
 
+import { useGlobal } from '../../global/GlobalContext';
 
 function SearchPage () {
   const [restaurants, setRestaurants] = useState([])
   const [restaurantsFiltered, setRestaurantsFiltered] = useState([])
   const [text, setText] = useState('Busque por nome de restaurante')
+  const { getRestaurants } = useGlobal()
 
-  const url = 'https://us-central1-missao-newton.cloudfunctions.net/rappi4B/restaurants';
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt5UDBERTZVblN6dmFwNUpKUVpyIiwibmFtZSI6IldhbmVzc2EiLCJlbWFpbCI6Indhbm5zYW50dG9zQGdtYWlsLmNvbSIsImNwZiI6IjA1MTIyMzU1Njg5IiwiaGFzQWRkcmVzcyI6dHJ1ZSwiYWRkcmVzcyI6IlIuIEFmb25zbyBCcmF6LCAxNzcsIDcxIC0gVmlsYSBOLiBDb25jZWnDp8OjbyIsImlhdCI6MTY0NTU2NDAzNX0.6duKhYKw0dTzk4AGyyS0aHflSHzjY6-yZw5fqHJYaEk';
-
-  async function getAllRestaurants() {
+  const restaurantes = async () => {
     try {
-      const response = await axios.get(url, {
-        headers: { auth: token }
-      })
-      console.log(response.data.restaurants)
-      setRestaurants(response.data.restaurants)
-    } catch (error) {
-      console.log(error)
+      const response = await getRestaurants()
+      setRestaurants(response)
+    }
+    catch (error) {
+      console.log('ERRO AO BUSCAR RESTAURANTES', error)
     }
   }
 
@@ -46,12 +43,9 @@ function SearchPage () {
     }
   }
 
-
   useEffect(() => {
-    getAllRestaurants()
+    restaurantes();
   }, []);
-
-
 
   return (
     <>
@@ -90,9 +84,6 @@ function SearchPage () {
             <CardRestaurant logo={restaurantsFiltered[0].logoUrl} name={restaurantsFiltered[0].name} time={restaurantsFiltered[0].deliveryTime}  shipping={restaurantsFiltered[0].shipping} />
           </Grid>
         )}
-
-
-
       </Grid>
 
     </>
