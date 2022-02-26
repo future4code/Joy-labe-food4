@@ -8,7 +8,7 @@ import LoginPage from "../page/LoginPage/LoginPage";
 import ResultPage from "../page/ResultPage/ResultPage";
 import SearchPage from "../page/SearchPage/SearchPage";
 import SignUpPage from "../page/SignUpPage/SignUp";
-import ProfilePage from "../page/SingUpPage/SingUp";
+import ProfilePage from "../page/ProfilePage/ProfilePage";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
 
 

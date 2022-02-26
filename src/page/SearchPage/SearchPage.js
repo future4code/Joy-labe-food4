@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { InputAdornment, Box, TextField, Typography, Grid } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Header } from '../../components/Header';
 import { CardRestaurant } from '../../components/CardRestaurant';
-
-import { useGlobal } from '../../global/GlobalContext';
+import GlobalContext from '../../global/GlobalContext';
 
 function SearchPage () {
   const [restaurants, setRestaurants] = useState([])
   const [restaurantsFiltered, setRestaurantsFiltered] = useState([])
   const [text, setText] = useState('Busque por nome de restaurante')
-  const { getRestaurants } = useGlobal()
+  const { getRestaurants } = useContext(GlobalContext)
 
-
+console.log(getRestaurants())
   const restaurantes = async () => {
     try {
       const response = await getRestaurants()

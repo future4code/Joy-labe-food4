@@ -1,13 +1,14 @@
 import React from "react";
-import { GlobalProvider } from "./global/GlobalContext";
+// import { GlobalProvider } from "./global/GlobalContext";
+import GlobalState from "./global/GlobalState";
 import  Router  from "./routes/Router";
 
 function App() {
   return (
     <>
-      <GlobalProvider>
+      <GlobalState>
         <Router/>
-      </GlobalProvider>
+      </GlobalState>
     </>
   );
 }

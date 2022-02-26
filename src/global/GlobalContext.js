@@ -1,27 +1,29 @@
-import React, { useCallback, useContext } from "react";
-import { api } from "../api";
+import React from "react";
+// import { api } from "../api";
 
 const GlobalContext = React.createContext({});
 
-export const GlobalProvider = ({ children }) => {
+// export const GlobalProvider = ({ children }) => {
 
-  const getRestaurants = useCallback( async () => {
-    const response = await api.get("/restaurants");
+//   const getRestaurants = useCallback( async () => {
+//     const response = await api.get("/restaurants");
 
-    return response.data.restaurants;
-  })
+//     return response.data.restaurants;
+//   })
 
-  return (
-    <GlobalContext.Provider value={{
-      getRestaurants
-    }}>
-      {children}
-    </GlobalContext.Provider>
-  );
-}
+//   return (
+//     <GlobalContext.Provider value={{
+//       getRestaurants
+//     }}>
+//       {children}
+//     </GlobalContext.Provider>
+//   );
+// }
 
-export function useGlobal() {
-  const context = useContext(GlobalContext);
+export default GlobalContext
 
-  return context;
-}
+// export function useGlobal() {
+//   const context = useContext(GlobalContext);
+
+//   return context;
+// }
