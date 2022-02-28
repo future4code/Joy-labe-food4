@@ -1,5 +1,4 @@
 import React from "react";
-// import { GlobalProvider } from "./global/GlobalContext";
 import GlobalState from "./global/GlobalState";
 import  Router  from "./routes/Router";
 
@@ -8,7 +7,7 @@ function App() {
     <>
       <GlobalState>
         <Router/>
-      </GlobalState>
+      </GlobalState>  
     </>
   );
 }

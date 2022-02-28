@@ -10,6 +10,7 @@ import SearchPage from "../page/SearchPage/SearchPage";
 import SignUpPage from "../page/SignUpPage/SignUp";
 import ProfilePage from "../page/ProfilePage/ProfilePage";
 import ErrorPage from "../page/ErrorPage/ErrorPage";
+import SplashScreen from "../page/SplashScreen/SplashScreen";
 
 
 const Router = () => {
@@ -20,7 +21,7 @@ const Router = () => {
                     <LoginPage />
                 </Route>
                 <Route exact path="/">
-                    <FeedPage />
+                    <SplashScreen />
                 </Route>
                 <Route exact path="/restaurante/:id">
                     <ResultPage />
