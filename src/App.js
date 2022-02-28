@@ -1,19 +1,13 @@
 import React from "react";
-import { GlobalProvider } from "./global/GlobalContext";
+import GlobalState from "./global/GlobalState";
 import  Router  from "./routes/Router";
-// import LoginPage from "./page/LoginPage/LoginPage";
-// import SplashScreen from "./page/SplashScreen/SplashScreen";
 
 function App() {
   return (
     <>
-     {/* <LoginPage> */}
-    {/* <SplashScreen>  */}
-      <GlobalProvider>
+      <GlobalState>
         <Router/>
-      </GlobalProvider>
-      {/* </SplashScreen> */}
-      {/* </LoginPage>  */}
+      </GlobalState>  
     </>
   );
 }
