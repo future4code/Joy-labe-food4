@@ -5,14 +5,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Header } from '../../components/Header';
 import { CardRestaurant } from '../../components/CardRestaurant';
 import GlobalContext from '../../global/GlobalContext';
+import useProtectedPage from '../../hooks/useProtectedPage';
 
-function SearchPage () {
+function SearchPage() {
+  useProtectedPage()
   const [restaurants, setRestaurants] = useState([])
   const [restaurantsFiltered, setRestaurantsFiltered] = useState([])
   const [text, setText] = useState('Busque por nome de restaurante')
   const { getRestaurants } = useContext(GlobalContext)
 
-console.log(getRestaurants())
+  console.log(getRestaurants())
   const restaurantes = async () => {
     try {
       const response = await getRestaurants()
@@ -30,11 +32,11 @@ console.log(getRestaurants())
       return restaurant.name.toLowerCase().includes(search.toLowerCase())
     })
 
-    if(search.length > 0 && searchRestaurants.length === 0) {
+    if (search.length > 0 && searchRestaurants.length === 0) {
       setText('Não encontramos :( ')
     }
 
-    if(search.length === 0) {
+    if (search.length === 0) {
       setRestaurantsFiltered([])
       setText('Busque por nome de restaurante')
     } else {
@@ -50,7 +52,7 @@ console.log(getRestaurants())
     <>
       <Header text="Busca" icon={true} />
 
-      <Grid style={{ display: 'flex', flexDirection: 'column', maxWidth: '360px', margin: '0 auto'}}>
+      <Grid style={{ display: 'flex', flexDirection: 'column', maxWidth: '360px', margin: '0 auto' }}>
         <Box>
           <form variant="outlined">
             <TextField
@@ -64,7 +66,7 @@ console.log(getRestaurants())
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                      <SearchIcon color="baseColor" />
+                    <SearchIcon color="baseColor" />
                   </InputAdornment>
                 ),
               }}
@@ -80,7 +82,7 @@ console.log(getRestaurants())
 
         {restaurantsFiltered.length > 0 && (
           <Grid justifyContent="center" alignItems="center" style={{ display: 'flex', flexDirection: 'column' }}>
-            <CardRestaurant logo={restaurantsFiltered[0].logoUrl} name={restaurantsFiltered[0].name} time={restaurantsFiltered[0].deliveryTime}  shipping={restaurantsFiltered[0].shipping} />
+            <CardRestaurant logo={restaurantsFiltered[0].logoUrl} name={restaurantsFiltered[0].name} time={restaurantsFiltered[0].deliveryTime} shipping={restaurantsFiltered[0].shipping} />
           </Grid>
         )}
       </Grid>

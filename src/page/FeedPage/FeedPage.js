@@ -12,9 +12,10 @@ import { Header } from "../../components/Header";
 
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, Box, TextField, Typography, Grid } from '@mui/material';
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const FeedPage = () => {
-
+  useProtectedPage()
   // const [value, setValue] = React.useState(0)
   // const ref = React.useRef(null);
 
