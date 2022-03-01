@@ -2,10 +2,10 @@ export const goToLogin = (history) => {
     history.push("/login")
 }
 export const goToFeed = (history) => {
-    history.push("/")
+    history.push("/restaurantes")
 }
 export const goToResult = (history, id) => {
-    history.push(`/restaurante/${id}`)
+    history.push(`/restaurantes/${id}`)
 }
 export const goToAdress = (history) => {
     history.push("/cadastro-endereco")

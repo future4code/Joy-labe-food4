@@ -1,4 +1,6 @@
 import React from "react"
+import axios from "axios";
+import { Base_url } from "../../constants/Urls";
 import logo from "../../images/logo-future-eats-invert.png"
 import { LoginStyle, StyledButtonCadastro } from './styled';
 import TextField from '@mui/material/TextField';
@@ -6,9 +8,9 @@ import { InputAdornment } from '@mui/material';
 import { IconButton } from '@mui/material';
 import { Visibility } from '@mui/icons-material';
 import { VisibilityOff } from '@mui/icons-material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import { goToFeed, goToSingUp } from "../../routes/coordinator"
+import { goToFeed, goToSingUp, goToAdress } from "../../routes/coordinator"
 
 const LoginPage = () => {
     const history = useHistory()
@@ -19,12 +21,36 @@ const LoginPage = () => {
         showPassword: false,
     });
 
-    const token = localStorage.getItem("token")
-
+    const [token, setToken] = useState(localStorage.getItem("token"))
 
     const body = {
         email: values.email,
         password: values.password
+    }
+
+    const login = async () => {
+        try {
+            const response = await axios.post(`${Base_url}/login`, body, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            console.log(response)
+            setToken(response.data.token)
+            localStorage.setItem("token", token)
+            if (response.data.user.hasAddress === true) {
+                goToFeed(history)
+            } else {
+                goToAdress(history)
+            }
+            setValues({
+                email: "",
+                password: "",
+                showPassword: false,
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const handleChange = (prop) => (event) => {
@@ -93,7 +119,7 @@ const LoginPage = () => {
                     type={values.showPassword ? 'text' : 'password'}
                     margin='normal'
                 />
-                <button id="button--entrar" >Entrar</button>
+                <button id="button--entrar" onClick={login}>Entrar</button>
 
                 <StyledButtonCadastro onClick={() => goToSingUp(history)}>
                     <p>Não possui cadastro? Clique aqui.</p>

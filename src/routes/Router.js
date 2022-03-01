@@ -17,13 +17,16 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/login">
-                    <LoginPage />
-                </Route>
                 <Route exact path="/">
                     <SplashScreen />
                 </Route>
-                <Route exact path="/restaurante/:id">
+                <Route exact path="/login">
+                    <LoginPage />
+                </Route>
+                <Route exact path="/restaurantes">
+                    <FeedPage />
+                </Route>
+                <Route exact path="/restaurantes/:id">
                     <ResultPage />
                 </Route>
                 <Route exact path="/cadastro-endereco">
