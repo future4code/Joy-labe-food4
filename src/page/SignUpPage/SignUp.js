@@ -61,37 +61,36 @@ const SignUp = () => {
         event.preventDefault();
     };
 
-    const signUp = () => {
+    const signUp = async () => {
         if (values.name.length !== 0 && values.email.length !== 0 && values.cpf.length !== 0 && values.password.length !== 0 && values.confirmPassword.length !== 0) {
             if (values.password.length >= 6) {
                 if (values.password === values.confirmPassword) {
 
-                    const response = axios.post(`${Base_url}/signup`, body, {
+                    const response = await axios.post(`${Base_url}/signup`, body, {
                         headers: {
                             "Content-Type": "application/json"
                         }
                     })
-                        .then((res) => {
-                            console.log(res)
-                            localStorage.setItem("token", res.data.token)
-                            alert("Usuário cadastrado com sucesso.")
-                            goToAdress(history)
-
-                            setValues({
-                                name: "",
-                                email: "",
-                                cpf: "",
-                                password: "",
-                                confirmPassword: "",
-                                showPassword: false,
-                                showConfirmPassword: false,
-                            })
+                    try {
+                        console.log(response)
+                        localStorage.setItem("token", response.data.token)
+                        alert("Usuário cadastrado com sucesso.")
+                        goToAdress(history)
+                        setValues({
+                            name: "",
+                            email: "",
+                            cpf: "",
+                            password: "",
+                            confirmPassword: "",
+                            showPassword: false,
+                            showConfirmPassword: false,
                         })
-                        .catch((err) => {
-                            console.log(err)
-                            alert("Esse usuário já possui cadastro.")
-                            goToLogin(history)
-                        })
+                    }
+                    catch {
+                        console.log(response)
+                        alert("Esse usuário já possui cadastro.")
+                        goToLogin(history)
+                    }
                 }
                 else {
                     alert("Confirme a senha corretamente.")

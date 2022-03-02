@@ -39,7 +39,7 @@ h4{
     color: #000;
 }
 `
-export const styledBottonCadastro = styled.button`
+export const StyledButtonCadastro = styled.button`
     font-weight: normal;
     font-stretch: normal;
     border: none;
