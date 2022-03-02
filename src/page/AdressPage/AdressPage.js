@@ -14,8 +14,10 @@ import { SignUpStyle } from './styled';
 import { Header } from './styled';
 import axios from 'axios';
 import { goToFeed } from '../../routes/coordinator';
+import useProtectedPage from '../../hooks/useProtectedPage';
 
 const AdressPage = () => {
+  useProtectedPage()
   const [values, setValues] = React.useState({
     street: '',
     number: '',
