@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { goToFeed, goToSingUp, goToAdress } from "../../routes/coordinator"
 
+
 const LoginPage = () => {
     const history = useHistory()
 
@@ -37,7 +38,7 @@ const LoginPage = () => {
             })
             console.log(response)
             setToken(response.data.token)
-            localStorage.setItem("token", token)
+            localStorage.setItem("token", response.data.token)
             if (response.data.user.hasAddress === true) {
                 goToFeed(history)
             } else {
