@@ -81,6 +81,7 @@ Agradecimentos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/80927630?v=4" width="100px;" alt="Foto do matheus Grativol"/><br>
         <sub>
           <b>Matheus Grativol</b>
+          <sub><a href="https://www.linkedin.com/in/matheus-grativol-87a94067/" target="_blank">Linkedin</a></sub>
         </sub>
       </a>
     </td>
