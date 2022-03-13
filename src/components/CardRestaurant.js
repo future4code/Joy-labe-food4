@@ -19,7 +19,7 @@ export const CardRestaurant = ({ logo, name, time, shipping }) => {
                         {time} min
                     </Typography>
                     <Typography fontSize="16px" style={{ color: '#b8b8b8' }}>
-                        Frete R$ {shipping}
+                        Frete R$ {shipping},00
                     </Typography>
                 </Grid>                
             </Grid>

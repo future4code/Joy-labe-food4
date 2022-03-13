@@ -5,36 +5,30 @@ import { Base_url } from "../../constants/Urls";
 import { goToResult } from "../../routes/coordinator";
 import GlobalContext from '../../global/GlobalContext';
 import { useHistory } from "react-router-dom";
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 import Navigation from "../../components/Navigation";
 import { Header } from "../../components/Header";
-
+import { Tab } from "./styled";
+import { Tabs } from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, Box, TextField, Typography, Grid } from '@mui/material';
 import useProtectedPage from "../../hooks/useProtectedPage";
 
 const FeedPage = () => {
   useProtectedPage()
-  // const [value, setValue] = React.useState(0)
-  // const ref = React.useRef(null);
-
+  const [value, setValue] = React.useState(0);
   const [restaurantsFiltered, setRestaurantsFiltered] = useState([])
   const [text, setText] = useState('')
-
   const { states, setters } = useContext(GlobalContext)
   const { rest } = states
   const { setRest } = setters
-
-  // const [restSearch, setRestSearch] = useState([])
-
   const history = useHistory()
-
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   useEffect(() => {
     getRest()
   }, [restaurantsFiltered])
-
-  // console.log(rest)
+  console.log(rest)
   const getRest = () => {
     axios
       .get(`${Base_url}/restaurants`,
@@ -50,33 +44,27 @@ const FeedPage = () => {
         alert(err.data)
       })
   }
-
   const filterRestt = (typ) => {
     const filterR = rest.filter((restaurant) => {
       return restaurant.category === typ
     })
-
     setRest(filterR)
   }
-
   const searchRestaurants = (e) => {
     e.preventDefault();
     const search = e.target.value;
     const searchRestaurants = rest.filter(restaurant => {
       return restaurant.name.toLowerCase().includes(search.toLowerCase())
     })
-
     if (search.length > 0 && searchRestaurants.length === 0) {
-      setText('Não encontramos :( ')
+      setText('Não encontramos :(')
     }
-
     if (search.length === 0) {
       setRestaurantsFiltered([])
     } else {
       setRestaurantsFiltered(searchRestaurants)
     }
   }
-
   const renderL = () => {
     if (restaurantsFiltered.length === 0) {
       return (
@@ -93,8 +81,6 @@ const FeedPage = () => {
       )
     }
   }
-
-
   const mapRest = rest.map((restaurants) => {
     return (
       <Grid justifyContent="center" alignItems="center" onClick={() => goToResult(history, restaurants.id)} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -102,6 +88,8 @@ const FeedPage = () => {
       </Grid>
     )
   })
+
+  console.log(value)
   return (
     <di>
       <di>
@@ -109,7 +97,6 @@ const FeedPage = () => {
       </di>
       <Grid style={{ display: 'flex', flexDirection: 'column', maxWidth: '360px', margin: '0 auto' }}>
         <div>
-          {/* <p>FeedPage</p> */}
           <Box>
             <form variant="outlined">
               <TextField
@@ -132,13 +119,25 @@ const FeedPage = () => {
           </Box>
         </div>
         <div>
-          <Stack spacing={2} direction="row">
-            <Button variant="text" onClick={() => filterRestt("Árabe")}><b>Árabe</b></Button>
-            <Button variant="text" onClick={() => filterRestt("Asiática")}><b>Asiática</b></Button>
-            <Button variant="text" onClick={() => filterRestt("Hamburguer")}><b>Hamburguer</b></Button>
-            <Button variant="text" onClick={() => filterRestt("Italiana")}><b>Italiana</b></Button>
-            <Button variant="text" onClick={() => filterRestt("Carnes")}><b>Carnes</b></Button>
-          </Stack>
+          <Box sx={{ maxWidth: 480, bgcolor: 'background.paper' }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons={false}
+              aria-label="scrollable prevent tabs example"
+            >
+              <Tab label="Árabe" value="Árabe" onClick={() => filterRestt("Árabe")} >Árabe</Tab>
+              <Tab label="Asiática" value="Asiática" onClick={() => filterRestt("Asiática")} >Asiática</Tab>
+              <Tab label="Hamburguer" value="Hamburguer" onClick={() => filterRestt("Hamburguer")} >Hamburguer</Tab>
+              <Tab label="Italiana" value="Italiana" onClick={() => filterRestt("Italiana")} >Italiana</Tab>
+              <Tab label="Carnes" value="Carnes" onClick={() => filterRestt("Carnes")} >Carnes</Tab>
+              <Tab label="Sorvetes" value="Sorvetes" onClick={() => filterRestt("Sorvetes")} >Sorvetes</Tab>
+              <Tab label="Baiana" value="Baiana" onClick={() => filterRestt("Baiana")} >Baiana</Tab>
+              <Tab label="Petiscos" value="Petiscos" onClick={() => filterRestt("Petiscos")} >Petiscos</Tab>
+              <Tab label="Mexicana" value="Mexicana" onClick={() => filterRestt("Mexicana")} >Mexicana</Tab>
+            </Tabs>
+          </Box>
         </div>
         <div>
           <di>
@@ -150,11 +149,7 @@ const FeedPage = () => {
         </div>
       </Grid>
     </di>
-
   )
 }
-
 export default FeedPage
-
-// {mapRest ? mapRest : <p>erro</p>}
 

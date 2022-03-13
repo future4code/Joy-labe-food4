@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import { goToFeed } from "../routes/coordinator";
 import { goToCar } from "../routes/coordinator";
 import { goToProfile } from "../routes/coordinator";
-import { InputAdornment, Box, TextField, Typography, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 
 
 
@@ -23,10 +23,6 @@ const Navigation = () => {
                 <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                     <BottomNavigation
                         showLabels
-                    // value={value}
-                    // onChange={(event, newValue) => {
-                    //   setValue(newValue);
-                    // }}
                     >
                         <BottomNavigationAction onClick={() => goToFeed(history)} icon={<HomeIcon />} />
                         <BottomNavigationAction onClick={() => goToCar(history)} icon={<ShoppingCartIcon />} />
