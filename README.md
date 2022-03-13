@@ -32,7 +32,6 @@ Agradecimentos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
-  </tr>
   <td align="center">
       <a href="https://github.com/wannsantos">
         <img src="https://avatars.githubusercontent.com/u/89370734?v=4" width="100px;" alt="Foto do Wanessa dos Santos Silva"/><br>
