@@ -98,9 +98,11 @@ Agradecimentos às seguintes pessoas que contribuíram para este projeto:
     </td>
   <td align="center">
       <a href="https://github.com/wannsantos">
-        <img src="https://www.linkedin.com/in/frederico-neves-de-araujo/" width="100px;" alt="Foto do Wanessa Santos"/><br>
+        <img src="https://avatars.githubusercontent.com/u/89370734?v=4" width="100px;" alt="Foto do Wanessa Santos"/><br>
         <sub>
           <b>Wanessa Santos</b>
+          <br>
+          <sub><a href="https://www.linkedin.com/in/frederico-neves-de-araujo/" target="_blank">Linkedin</a></sub>
         </sub>
     </td>
   </tr>
