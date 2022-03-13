@@ -14,14 +14,13 @@ function SearchPage() {
   const [text, setText] = useState('Busque por nome de restaurante')
   const { getRestaurants } = useContext(GlobalContext)
 
-  console.log(getRestaurants())
   const restaurantes = async () => {
     try {
       const response = await getRestaurants()
       setRestaurants(response)
     }
     catch (error) {
-      console.log('ERRO AO BUSCAR RESTAURANTES', error)
+      alert(error.message)
     }
   }
 
@@ -33,7 +32,7 @@ function SearchPage() {
     })
 
     if (search.length > 0 && searchRestaurants.length === 0) {
-      setText('Não encontramos :( ')
+      setText('Não encontramos 😦 ')
     }
 
     if (search.length === 0) {

@@ -10,7 +10,7 @@ const returnPage = () => {
 export const Header = ({ text, icon }) => {
 
     return (
-        <Grid style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.25)', display: 'flex', height: '64px', alignItems: 'center', maxWidth: '360px', margin: '0 auto' }}>
+        <Grid style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.25)', display: 'flex', height: '64px', alignItems: 'center', width: '360px', margin: '0 auto' }}>
             {icon && (
                 <Grid onClick={returnPage} style={{ cursor: 'pointer' }}>
                     <ArrowBackIosIcon />
