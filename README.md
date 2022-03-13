@@ -1,6 +1,6 @@
 <div align="center"><img src= "https://user-images.githubusercontent.com/89141117/156668269-4c6841e1-17c5-4f14-8f1d-ee5ee45cb54e.png" width="400" height="200"> </div>
 
-## 🤝 Colaboradores
+## 👩‍💻 Colaboradores
 
 Agradecimentos às seguintes pessoas que contribuíram para este projeto:
 
