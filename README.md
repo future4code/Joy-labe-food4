@@ -15,9 +15,9 @@ apresentação:
 ## 💻 Pré-requisitos
 
 - **Fluxo de Login/Cadastro**
-    - [ ]  O usuário deve ser capaz de criar uma conta, cadastrando seus dados pessoais e seu endereço
+    - [x]  O usuário deve ser capaz de criar uma conta, cadastrando seus dados pessoais e seu endereço
     - [ ]  Caso insira alguma informação incorreta ou deixe de inserir alguma informação obrigatória, o usuário deve receber uma mensagem de erro clara
-    - [ ]  Após finalizar o cadastro, o usuário deve ser redirecionado para a tela de lista de restaurantes
+    - [x]  Após finalizar o cadastro, o usuário deve ser redirecionado para a tela de lista de restaurantes
     
     
 
