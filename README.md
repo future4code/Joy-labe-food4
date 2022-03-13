@@ -1,10 +1,10 @@
-<div align="center"><img src= "https://user-images.githubusercontent.com/89141117/156668269-4c6841e1-17c5-4f14-8f1d-ee5ee45cb54e.png" </div>
+<div align="center"><img src= "https://user-images.githubusercontent.com/89141117/156668269-4c6841e1-17c5-4f14-8f1d-ee5ee45cb54e.png" width="400" height="200"</div>
   
   
 ## 📄 Sobre
 Projeto Final do Frontend: LabeFoods desenvolvido pelo curso fullstack da Labenu. Para fechar com chave de ouro om modulo Frontend realizamos um projeto que tende a se aproximar do mundo real , a ideia proposta foi desenvolver um aplicativo parecido com o Ifood reproduzindo um layout pronto feito por uma designer experiente: Camila Mizutani. deveriamos  implementar todas as telas fornecidas no design pelo Zeplin, integradas com a API fornecida.
   
-##🔗 Link para acessar
+## 🔗 Link para acessar
   
 link:
   
