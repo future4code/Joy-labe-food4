@@ -96,9 +96,6 @@ Agradecimentos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Wanessa Santos</b>
         </sub>
-      
-        </sub>
-      </a>
     </td>
   </tr>
 </table>
