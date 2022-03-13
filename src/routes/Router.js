@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AdressPage from "../page/AdressPage/AdressPage";
-import CarPage from "../page/CarPage/CarPage";
+import CartPage from "../page/CartPage/CartPage";
 import EditRecordPage from "../page/EditRecordPage/EditRecordPage";
 import FeedPage from "../page/FeedPage/FeedPage";
 import LoginPage from "../page/LoginPage/LoginPage";
@@ -33,7 +33,7 @@ const Router = () => {
                     <AdressPage />
                 </Route>
                 <Route exact path="/carrinho">
-                    <CarPage />
+                    <CartPage />
                 </Route>
                 <Route exact path="/perfil">
                     <ProfilePage />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import { Divider, Grid, Typography } from "@mui/material"
 import { Header } from "../../components/Header"
+import Navigation from '../../components/Navigation'
 
 import { api } from "../../api"
 
@@ -66,7 +67,7 @@ const ResultPage = () => {
               <Grid>
                 {restaurant?.products?.map((product) => (
                   <Grid style={{ marginTop: '1rem' }}>
-                    <CardProduct key={product.id} idProduct={product.id} name={product.name} image={product.photoUrl} price={product.price} description={product.description} restaurantId={restaurantId} />
+                    <CardProduct key={product.id} idProduct={product.id} name={product.name} image={product.photoUrl} price={product.price} description={product.description} restaurantId={restaurantId} shipping={restaurant.shipping} />
                   </Grid>
                 ))}
               </Grid>
@@ -74,6 +75,8 @@ const ResultPage = () => {
           )}
 
         </Grid>
+
+        <Navigation />
 
       </Grid>
     </>
