@@ -10,9 +10,8 @@ link:
   
 ## 📲  Apresentação do aplicativo
   
-<div align="center">
+
 ![Webp net-gifmaker](https://user-images.githubusercontent.com/79390113/158054929-c47bfb4e-a6d6-41e3-993b-4148d656e3a2.gif)
-</div>
 
 
 ## 💻 Pré-requisitos
