@@ -19,8 +19,8 @@ apresentação:
     - [ ]  Caso insira alguma informação incorreta ou deixe de inserir alguma informação obrigatória, o usuário deve receber uma mensagem de erro clara
     - [ ]  Após finalizar o cadastro, o usuário deve ser redirecionado para a tela de lista de restaurantes
     
-    O design dessas telas está dentro do modelo proposto:  😄     😐     😥
-    ****
+    
+
     
 - **Busca e Seleção de Restaurantes**
     - [ ]  O usuário deve ser capaz de visualizar uma lista com todos os restaurantes
@@ -28,7 +28,7 @@ apresentação:
     - [ ]  O usuário deve ser capaz de filtrar os restaurantes por categoria
     - [ ]  O usuário deve ser capaz de clicar no card de um restaurante para visualizar a tela com seu cardápio
     
-    O design dessas telas está dentro do modelo proposto:  😄     😐     😥
+   
     
 - **Cardápio do Restaurante**
     - [ ]  O usuário deve ser capaz de visualizar as informações do restaurante (foto, nome, tipo, tempo de entrega, frete, endereço)
@@ -37,7 +37,7 @@ apresentação:
     - [ ]  O usuário deve ser capaz de adicionar pratos no carrinho e selecionar a quantidade de cada prato
     - [ ]  O usuário deve ser capaz de remover itens do carrinho
     
-    O design dessas telas está dentro do modelo proposto:  😄     😐     😥
+
     
 - **Carrinho e Finalizar Compra**
     - [ ]  O usuário deve ser capaz de visualizar a lista de itens que adicionou ao carrinho. Caso não tenha adicionado nenhum item, deverá ver uma mensagem de "Carrinho Vazio"
@@ -46,7 +46,7 @@ apresentação:
     - [ ]  O usuário deve ser capaz de selecionar uma forma de pagamento dentre as opções de cartão e dinheiro
     - [ ]  O usuário deve ser capaz de concluir um pedido e, ao fazê-lo, deve ver um banner de "Pedido em Andamento" com os dados do pedido (esse banner fica ativo durante X minutos, sendo X o tempo de entrega do restaurante)
     
-    O design dessas telas está dentro do modelo proposto:  😄     😐     😥
+
     
 - **Perfil, Editar Perfil e Histórico de Pedidos**
     - [ ]  O usuário deve ser capaz de visualizar seus dados pessoais e endereço
@@ -54,7 +54,7 @@ apresentação:
     - [ ]  Ao editar as informações, caso insira alguma informação incorreta ou deixe de inserir alguma informação obrigatória, o usuário deve receber uma mensagem de erro clara
     - [ ]  O usuário deve ser capaz de visualizar o seu histórico de pedidos concluídos (após o tempo de entrega do estabelecimento, o seu pedido aparece nessa lista?)
     
-    O design dessas telas está dentro do modelo proposto:  😄     😐     😥
+
 
 ## 👩‍💻 Colaboradores
 
