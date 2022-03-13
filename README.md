@@ -70,12 +70,6 @@ Agradecimentos às seguintes pessoas que contribuíram para este projeto:
         <img src="https://avatars.githubusercontent.com/u/79390113?s…00&u=b065c64098c5b02a518c275d6d7449b1c2973559&v=4/u/31936044" width="100px;" alt="Foto da thayna regina no GitHub"/><br>
         <sub>
           <b>Thayna Regina</b>
-            <a href="https://www.linkedin.com/in/thaynaregina/">
-        <sub>
-          <b>Linkedin</b>
-        </sub>
-              
-      </a>
     </td>
     <td align="center">
      </a>
