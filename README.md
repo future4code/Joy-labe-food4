@@ -74,6 +74,7 @@ Agradecimentos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Linkedin</b>
         </sub>
+              
       </a>
     </td>
     <td align="center">
