@@ -10,33 +10,38 @@ import { useHistory } from "react-router-dom";
 import { goToFeed } from "../routes/coordinator";
 import { goToCar } from "../routes/coordinator";
 import { goToProfile } from "../routes/coordinator";
-import { InputAdornment, Box, TextField, Typography, Grid } from '@mui/material';
-
+import { Box } from '@mui/material';
+import { useState } from "react";
+import { orange } from '@mui/material/colors';
 
 
 const Navigation = () => {
+    const [value, setValue] = useState(localStorage.getItem("value"))
     const history = useHistory()
+    console.log(value);
     return (
-        <di>
+        <div>
             <Box sx={{ pb: 7 }}>
                 <CssBaseline />
                 <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                     <BottomNavigation
-                        showLabels
-                    // value={value}
-                    // onChange={(event, newValue) => {
-                    //   setValue(newValue);
-                    // }}
+                        value={value}
+                        onChange={(event, newValue) => {
+                            localStorage.setItem("value", newValue)
+                        }}
                     >
-                        <BottomNavigationAction onClick={() => goToFeed(history)} icon={<HomeIcon />} />
-                        <BottomNavigationAction onClick={() => goToCar(history)} icon={<ShoppingCartIcon />} />
-                        <BottomNavigationAction onClick={() => goToProfile(history)} icon={<PermIdentityIcon />} />
+                        <BottomNavigationAction onClick={() => goToFeed(history)} icon={value === "0" ? <HomeIcon sx={{ color: orange[500] }} /> : <HomeIcon />} />
+                        <BottomNavigationAction onClick={() => goToCar(history)} icon={value === "1" ? <ShoppingCartIcon sx={{ color: orange[500] }} /> : <ShoppingCartIcon />} />
+                        <BottomNavigationAction onClick={() => goToProfile(history)} icon={value === "2" ? <PermIdentityIcon sx={{ color: orange[500] }} /> : <PermIdentityIcon />} />
                     </BottomNavigation>
                 </Paper>
             </Box>
-        </di>
+        </div>
 
     )
 }
 
 export default Navigation
+
+
+
