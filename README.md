@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/79390113/158052068-358286f3-25e9-4ef0-9e1b-c8175a1d59ae.png)
+<td align="center">![image](https://user-images.githubusercontent.com/79390113/158052068-358286f3-25e9-4ef0-9e1b-c8175a1d59ae.png) </td>
 ## 🤝 Colaboradores
 
 Agradecimentos às seguintes pessoas que contribuíram para este projeto:
