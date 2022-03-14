@@ -12,12 +12,17 @@ import { Tabs } from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, Box, TextField, Typography, Grid } from '@mui/material';
 import useProtectedPage from "../../hooks/useProtectedPage";
+import { api } from "../../api";
+import Clock from '../../images/clock.png';
 
 const FeedPage = () => {
   useProtectedPage()
   const [value, setValue] = React.useState(0);
   const [restaurantsFiltered, setRestaurantsFiltered] = useState([])
   const [text, setText] = useState('')
+  const [activeOrder, setActiveOrder] = useState(false)
+  const [order, setOrder] = useState([])
+
   const { states, setters } = useContext(GlobalContext)
   const { rest } = states
   const { setRest } = setters
@@ -27,6 +32,7 @@ const FeedPage = () => {
   };
   useEffect(() => {
     getRest()
+    getActiveOrder()
   }, [restaurantsFiltered])
   console.log(rest)
   const getRest = () => {
@@ -44,6 +50,17 @@ const FeedPage = () => {
         alert(err.data)
       })
   }
+
+  const getActiveOrder = async () => {
+    const response = await api.get('/active-order')
+    try {
+      setOrder(response.data.order)
+      setActiveOrder(response.data?.order?.restaurantName?.length > 0 ? true : false)
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+
   const filterRestt = (typ) => {
     const filterR = rest.filter((restaurant) => {
       return restaurant.category === typ
@@ -144,6 +161,28 @@ const FeedPage = () => {
             {restaurantsFiltered ? renderL() : mapRest}
           </di>
           <di>
+            {activeOrder && (
+              <Grid style={{ display: 'flex', padding: '1rem', height: '118px', width: '100%', background: '#e86e5a', alignItems: 'center', zIndex: '9999', position: 'fixed', bottom: '55px', left: 0, right: 0 }}>
+                <Grid>
+                  <img src={Clock} alt="relógio" />
+                </Grid>
+
+                <Grid style={{ marginLeft: '2rem' }}>
+                  <Typography fontSize="16px" style={{ color: '#fff' }}>
+                    Pedido em andamento
+                  </Typography>
+
+                  <Typography fontSize="16px" style={{  }}>
+                    {order.restaurantName}
+                  </Typography>
+
+                  <Typography fontSize="16px" style={{  }}>
+                    SUBTOTAL R${order.totalPrice}
+                  </Typography>
+
+                </Grid>
+              </Grid>
+            )}
             <Navigation />
           </di>
         </div>
