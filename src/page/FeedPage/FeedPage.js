@@ -108,10 +108,10 @@ const FeedPage = () => {
 
   console.log(value)
   return (
-    <di>
-      <di>
+    <div>
+      <div>
         <Header text="Home" />
-      </di>
+      </div>
       <Grid style={{ display: 'flex', flexDirection: 'column', maxWidth: '360px', margin: '0 auto' }}>
         <div>
           <Box>
@@ -157,10 +157,10 @@ const FeedPage = () => {
           </Box>
         </div>
         <div>
-          <di>
+          <div>
             {restaurantsFiltered ? renderL() : mapRest}
-          </di>
-          <di>
+          </div>
+          <div>
             {activeOrder && (
               <Grid style={{ display: 'flex', padding: '1rem', height: '118px', width: '100%', background: '#e86e5a', alignItems: 'center', zIndex: '9999', position: 'fixed', bottom: '55px', left: 0, right: 0 }}>
                 <Grid>
@@ -172,22 +172,24 @@ const FeedPage = () => {
                     Pedido em andamento
                   </Typography>
 
-                  <Typography fontSize="16px" style={{  }}>
+                  <Typography fontSize="16px" style={{}}>
                     {order.restaurantName}
                   </Typography>
 
-                  <Typography fontSize="16px" style={{  }}>
-                    SUBTOTAL R${order.totalPrice}
+                  <Typography fontSize="16px" style={{}}>
+                    SUBTOTAL R$ {order.totalPrice}
                   </Typography>
 
                 </Grid>
               </Grid>
             )}
-            <Navigation />
-          </di>
+
+          </div>
         </div>
       </Grid>
-    </di>
+      <Navigation />
+    </div>
+
   )
 }
 export default FeedPage

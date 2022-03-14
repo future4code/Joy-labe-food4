@@ -6,7 +6,7 @@ Projeto Final do Frontend: LabeFoods desenvolvido pelo curso fullstack da Labenu
   
 ## 🔗 Link para acessar
   
-link:
+link: sticky-wound.surge.sh
   
 ## 📲  Apresentação do aplicativo
   
@@ -26,28 +26,28 @@ link:
 
     
 - **Busca e Seleção de Restaurantes**
-    - [ ]  O usuário deve ser capaz de visualizar uma lista com todos os restaurantes
-    - [ ]  O usuário deve ser capaz de buscar um restaurante por nome
-    - [ ]  O usuário deve ser capaz de filtrar os restaurantes por categoria
-    - [ ]  O usuário deve ser capaz de clicar no card de um restaurante para visualizar a tela com seu cardápio
+    - [x]  O usuário deve ser capaz de visualizar uma lista com todos os restaurantes
+    - [x]  O usuário deve ser capaz de buscar um restaurante por nome
+    - [x]  O usuário deve ser capaz de filtrar os restaurantes por categoria
+    - [x]  O usuário deve ser capaz de clicar no card de um restaurante para visualizar a tela com seu cardápio
     
    
     
 - **Cardápio do Restaurante**
-    - [ ]  O usuário deve ser capaz de visualizar as informações do restaurante (foto, nome, tipo, tempo de entrega, frete, endereço)
-    - [ ]  O usuário deve ser capaz de visualizar os pratos do restaurante, divididos em categorias (exemplo: principais, sobremesas, entradas, etc)
-    - [ ]  O usuário deve ser capaz de visualizar as informações de cada prato (foto, nome, descrição, preço)
-    - [ ]  O usuário deve ser capaz de adicionar pratos no carrinho e selecionar a quantidade de cada prato
+    - [x]  O usuário deve ser capaz de visualizar as informações do restaurante (foto, nome, tipo, tempo de entrega, frete, endereço)
+    - [x]  O usuário deve ser capaz de visualizar os pratos do restaurante, divididos em categorias (exemplo: principais, sobremesas, entradas, etc)
+    - [x]  O usuário deve ser capaz de visualizar as informações de cada prato (foto, nome, descrição, preço)
+    - [x]  O usuário deve ser capaz de adicionar pratos no carrinho e selecionar a quantidade de cada prato
     - [ ]  O usuário deve ser capaz de remover itens do carrinho
     
 
     
 - **Carrinho e Finalizar Compra**
-    - [ ]  O usuário deve ser capaz de visualizar a lista de itens que adicionou ao carrinho. Caso não tenha adicionado nenhum item, deverá ver uma mensagem de "Carrinho Vazio"
-    - [ ]  O usuário deve visualizar, no topo da tela, o endereço de entrega
+    - [x]  O usuário deve ser capaz de visualizar a lista de itens que adicionou ao carrinho. Caso não tenha adicionado nenhum item, deverá ver uma mensagem de "Carrinho Vazio"
+    - [x]  O usuário deve visualizar, no topo da tela, o endereço de entrega
     - [ ]  O usuário deve visualizar o preço total da compra, que deve ser corretamente calculado de acordo com o preço e quantidade de cada item adicionado
     - [ ]  O usuário deve ser capaz de selecionar uma forma de pagamento dentre as opções de cartão e dinheiro
-    - [ ]  O usuário deve ser capaz de concluir um pedido e, ao fazê-lo, deve ver um banner de "Pedido em Andamento" com os dados do pedido (esse banner fica ativo durante X minutos, sendo X o tempo de entrega do restaurante)
+    - [x]  O usuário deve ser capaz de concluir um pedido e, ao fazê-lo, deve ver um banner de "Pedido em Andamento" com os dados do pedido (esse banner fica ativo durante X minutos, sendo X o tempo de entrega do restaurante)
     
 
     
