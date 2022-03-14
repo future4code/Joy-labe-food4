@@ -6,7 +6,7 @@ Projeto Final do Frontend: LabeFoods desenvolvido pelo curso fullstack da Labenu
   
 ## 🔗 Link para acessar
   
-link: hesitant-stranger.surge.sh
+link: nine-ladybug.surge.sh
   
 ## 📲  Apresentação do aplicativo
   
