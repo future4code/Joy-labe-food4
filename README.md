@@ -6,7 +6,7 @@ Projeto Final do Frontend: LabeFoods desenvolvido pelo curso fullstack da Labenu
   
 ## 🔗 Link para acessar
   
-link: sticky-wound.surge.sh
+link: hesitant-stranger.surge.sh
   
 ## 📲  Apresentação do aplicativo
   
