@@ -102,7 +102,7 @@ Agradecimentos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Wanessa Santos</b>
           <br>
-          <sub><a href="https://www.linkedin.com/in/frederico-neves-de-araujo/" target="_blank">Linkedin</a></sub>
+          <sub><a href="https://www.linkedin.com/in/wanessa-santos-4b9689136/" target="_blank">Linkedin</a></sub>
         </sub>
     </td>
   </tr>
